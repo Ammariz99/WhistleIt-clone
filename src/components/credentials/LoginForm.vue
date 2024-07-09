@@ -3,8 +3,8 @@
         <h2 class="mt-1 ml-16" >Login</h2>
         <p class="mt-4 ml-16">Enter your credentials to proceed</p>
         <v-form @submit.prevent="submitForm" class="mt-4 ml-16">
-          <v-text-field v-model="formData.email" label="Email*" type="email" :rules="[rules.email]" required></v-text-field>
-          <v-text-field v-model="formData.password" label="Password*" type="password" :rules="[rules.password]" required></v-text-field>
+          <v-text-field v-model="formData.email" label="Email*" type="email" :rules="[rules.email]"></v-text-field>
+          <v-text-field v-model="formData.password" label="Password*" type="password" :rules="[rules.password]"></v-text-field>
           <v-row class="d-flex align-center ">
                 <v-col cols="6">
                     <v-checkbox v-model="formData.checkbox" label="Remember Me"></v-checkbox>
@@ -21,6 +21,13 @@
             </v-col>
           </v-row>
         </v-form>
+        <v-snackbar v-model="successSnackbar" :timeout="snackbarTimeout" top right color="green">
+          {{ snackbarText }}
+        </v-snackbar>
+
+        <v-snackbar v-model="errorSnackbar" :timeout="snackbarTimeout" top right color="error">
+          Invalid email & password
+        </v-snackbar>
       </v-container>
     </template>
     
@@ -37,7 +44,12 @@ export default {
             rules:{
                 email: value => !!(value || '').match(/@/) || 'Please Enter a valid email',
                 password: value => !!value || 'Password is Required'
-            }
+            },
+            successSnackbar: false,
+            errorSnackbar: false,
+            snackbarText: 'Login Successful',
+            snackbarTimeout: 2000,
+
         }
         
     },
@@ -46,12 +58,16 @@ export default {
       async submitForm() {
     try {
       await this.login({ email: this.formData.email, password: this.formData.password });
-      // If login is successful, proceed to redirect
+      this.successSnackbar = true;
+      this.snackbar = true;
       
-      this.$router.push('/dashboard'); // Redirect to dashboard
+      setTimeout(() =>{
+      this.$router.push('/dashboard'); 
+      }, this.snackbarTimeout);
     } catch (error) {
       console.error('Login failed:', error.message);
-      // Handle login failure, e.g., show error message
+      this.errorSnackbar = true;
+      
     }
   },
     }

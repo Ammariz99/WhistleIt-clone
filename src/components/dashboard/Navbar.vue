@@ -1,7 +1,9 @@
 <template>
   <v-app-bar app clipped-right flat height="72">
-    <div v-if="selectedChannel" class="selected-channel">{{ selectedChannel }}</div>
-    <div v-if="selectedMessage" class="selected-message">{{ selectedMessage }}</div>
+    <v-icon>mdi-star-outline</v-icon>
+     <div v-if="selectedChannel"  class="selected-channel">{{ selectedChannel.name }}</div>  
+     <div v-else class="selected-message">{{ selectedMessage.name }}</div>  
+    
     <v-spacer></v-spacer>
     
     <v-responsive max-width="300">
@@ -29,10 +31,24 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'Navbar',
+  
   computed: {
     ...mapGetters('channel', ['selectedChannel']),  
-    ...mapGetters('message',['selectedMessage'])
+    ...mapGetters('message',['selectedMessage']),
+
+    showChannelName(){
+      if(this.selectedChannel.name){
+        return this.selectedChannel.name
+      }else{
+        return this.selectedMessage.name
+        }
+      
+    }
+  },
+  methods:{
+    
   }
+  
 };
 </script>
 

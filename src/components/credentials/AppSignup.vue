@@ -36,24 +36,7 @@ import SignupForm from '@/components/credentials/SignupForm.vue';
   components: { 
     SignupForm, 
 },
-    // data() {
-    //   return {
-    //     name: '',
-    //     email: '',
-    //     password: '',
-    //     confirmPassword: '',
-    //   };
-    // },
-    // methods: {
-    //   signup() {
-    //     if (this.password === this.confirmPassword) {
-    //       // Implement your signup logic here
-    //       alert('Signup successful!');
-    //     } else {
-    //       alert('Passwords do not match.');
-    //     }
-    //   },
-    // },
+    
   };
   </script>
   

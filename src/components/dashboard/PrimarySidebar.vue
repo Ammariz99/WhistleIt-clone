@@ -24,6 +24,9 @@
           <v-divider class="mx-2 my-16 "></v-divider>
           <v-divider class="mx-2 my-16 "></v-divider>
           <v-divider class="mx-2 my-16 "></v-divider>
+          <v-divider class="mx-2 my-16 "></v-divider>
+          <v-divider class="mx-2 my-16 "></v-divider>
+
           
           <v-divider class="mx-2 my-4 " color="white"></v-divider>
 
@@ -33,9 +36,18 @@
             :key="'bottom-'+ n"
             class="d-block text-center mx-auto mb-9"
             color="grey lighten-1"
-            size="28"
+            size="40"
             tile
-          ></v-avatar>
+          ><img src="https://app.whistleit.io/api/viewFile/4412037881718274935494581125.png" alt=""> 
+          <v-badge
+        bordered
+        bottom
+        color="green accent-6"
+        dot
+        offset-x="10"
+        offset-y="10"
+      ></v-badge>
+        </v-avatar>
         </v-navigation-drawer>
       <!--first component left sidebar end-->
 

@@ -3,9 +3,9 @@
     <h2 class="mt-16 ml-16" >Create Account</h2>
     <p class="mt-4 ml-16">Fill the form below to create an account</p>
     <v-form @submit.prevent="submitForm" class="mt-4 ml-16">
-      <v-text-field v-model="formData.name" label="Name*" :rules="[rules.name]" required></v-text-field>
-      <v-text-field v-model="formData.companyName" label="Company Name*" :rules="[rules.companyName]" required></v-text-field>
-      <v-text-field v-model="formData.email" label="Email*" type="email" :rules="[rules.email]" required></v-text-field>
+      <v-text-field v-model="formData.name" label="Name*" :rules="[rules.name]" ></v-text-field>
+      <v-text-field v-model="formData.companyName" label="Company Name*" :rules="[rules.companyName]"></v-text-field>
+      <v-text-field v-model="formData.email" label="Email*" type="email" :rules="[rules.email]"></v-text-field>
       <v-text-field v-model="formData.password" label="Password" type="password" required></v-text-field>
       <v-text-field v-model="formData.confirmPassword" label="Confirm Password*" :rules="[rules.confirmPassword]" type="password" required></v-text-field>
       <v-checkbox v-model="formData.checkbox" label="I Accept to the Terms and Privacy Policy"></v-checkbox>

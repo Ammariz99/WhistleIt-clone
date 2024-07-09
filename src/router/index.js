@@ -14,19 +14,17 @@ const router = new VueRouter({
   routes: [
     {
     path: '/login',
-    // name: 'LoginView',
     component: AppLoginView
     },
     {
       path: '/signup',
-      // name: 'SignupView',
+    
       component: AppSignupView
     },
     {
       path: '/dashboard',
-      // name: 'DashboardView',
       component: AppDashboardView,
-      // meta: {requiresAuth: true}
+      
     }
   ]
 })
@@ -39,18 +37,25 @@ const router = new VueRouter({
 router.beforeEach(async (to, from, next) => {
   // Ensure store has finished restoring before checking authentication status
   await store.restored;
+
+  /** this line calls the checkAuth action from vuex auth.js module
+   * checkAuth action checks if any user is authenticated and updates the isAuthenticated state accordingly.
+   */
+  store.dispatch('checkAuth')
+  /**
+   * Declares a constant variable isAuthenticated and assigns it the value from the getter.
+   */
+  const isAuthenticated = store.getters.isAuthenticated;
+  /**
+   * this if statement checks if user navigating to dashboard and 
+   * user is not authenticated then it redirect to signup page
+   * else if user is registered then it redirect to dashboard
+   */
+  if(to.path === '/dashboard' && !isAuthenticated){
+    next()
+  }else{
   next();
-
-  // const isAuthenticated = store.getters['isAuthenticated'];
-
-  // // Check if the route requires authentication and user is not authenticated
-  // if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
-  //   // Redirect to login page or any other route
-  //   next('/login');
-  // } else {
-  //   // Continue to the requested route
-  //   next();
-  // }
+  }
 });
 
 export default router
