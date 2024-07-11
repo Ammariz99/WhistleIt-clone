@@ -7,6 +7,7 @@
               <v-icon>{{ directMessageIcon }}</v-icon>
               Messages
             </v-btn>
+            
             <v-btn icon color="#e8e7ec" class="ml-16" small @click="toggleAddDirectMessageDialog">
               <v-icon>mdi-plus</v-icon>
             </v-btn>
@@ -20,7 +21,7 @@
             <v-list-item v-for="user in directMessages" :key="'user-'+ user.id" link @click="selectMessage(user)">
               <v-icon color="white" small>mdi-account-check</v-icon>
               <v-list-item-content>
-                <v-list-item-title class="user-name " >{{ user.name }}</v-list-item-title>
+                <v-list-item-title class="user-name ">{{ user.name }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </div>

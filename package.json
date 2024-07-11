@@ -8,6 +8,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@tiptap/starter-kit": "^2.4.0",
+    "@tiptap/vue-2": "^2.4.0",
     "localforage": "^1.10.0",
     "vue": "^2.7.7",
     "vue-router": "^3.5.4",

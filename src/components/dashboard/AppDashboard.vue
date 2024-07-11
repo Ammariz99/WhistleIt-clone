@@ -67,7 +67,7 @@
               </v-menu>
    
       </div>
-      <p class="paragraph ml-11" >{{ msg }}</p>
+      <div class="paragraph ml-11" v-html="msg"></div>
       
     </div>
   </div>
@@ -155,7 +155,8 @@ import { mapActions,mapGetters, } from 'vuex';
     computed: {
       ...mapGetters('sendMsg', ['userMessages']),
       ...mapGetters('message', ['selectedMessage']),
-      ...mapGetters('channel', ['selectedChannel'])
+      ...mapGetters('channel', ['selectedChannel']),
+      
     },
     methods: {
       ...mapActions('sendMsg', ['deleteMessage', 'editMessage']),
