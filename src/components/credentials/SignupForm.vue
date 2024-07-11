@@ -8,7 +8,7 @@
       <v-text-field v-model="formData.email" label="Email*" type="email" :rules="[rules.email]"></v-text-field>
       <v-text-field v-model="formData.password" label="Password" type="password" required></v-text-field>
       <v-text-field v-model="formData.confirmPassword" label="Confirm Password*" :rules="[rules.confirmPassword]" type="password" required></v-text-field>
-      <v-checkbox v-model="formData.checkbox" label="I Accept to the Terms and Privacy Policy"></v-checkbox>
+      <v-checkbox v-model="formData.checkbox" :rules="[rules.checkbox]" label="I Accept to the Terms and Privacy Policy"></v-checkbox>
       <v-btn color="#9aa3fd" type="submit" block>Create Account</v-btn>
       <v-row class="mt-4">
         <v-col class="d-flex">
@@ -39,7 +39,8 @@ export default {
         name: value => !!value || 'Name is Required',
         companyName: value => !!value || 'Company Name Must be Required',
         email: value => !!(value || '').match(/@/) || 'Please Enter a valid email',
-        confirmPassword: value => !!value || 'Required'
+        confirmPassword: value => !!value || 'Required',
+        checkbox: value => !!value || 'You must accept the terms and conditions',
       },
     };
   },

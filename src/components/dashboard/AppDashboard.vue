@@ -5,7 +5,7 @@
     <!--Navbar End-->
 
 
-    <v-navigation-drawer v-model="drawer" app width="300" color="#2f2c54">
+    <v-navigation-drawer :value="drawer" app width="300" color="#2f2c54">
 
 
       <!--Primary Sidebar Imported Start-->
@@ -144,7 +144,7 @@ import { mapActions,mapGetters, } from 'vuex';
       },
     data(){
       return {
-          drawer: null,
+          drawerOpen: null,
           editDialog: false,
           editedMessage: '',
           editMessageDetails: null,
@@ -156,10 +156,12 @@ import { mapActions,mapGetters, } from 'vuex';
       ...mapGetters('sendMsg', ['userMessages']),
       ...mapGetters('message', ['selectedMessage']),
       ...mapGetters('channel', ['selectedChannel']),
+      ...mapGetters('hamburger', ['drawer'])
       
     },
     methods: {
       ...mapActions('sendMsg', ['deleteMessage', 'editMessage']),
+      ...mapActions('hamburger', ['toggleDrawer']),
 /**=============================Delete Message Functionality Start=========================== */
       /**This function handles the delete Message
        * @params {userId, messageIndex}

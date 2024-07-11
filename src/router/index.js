@@ -24,6 +24,8 @@ const router = new VueRouter({
     {
       path: '/dashboard',
       component: AppDashboardView,
+      meta: { requiresAuth: true },
+
       
     }
   ]

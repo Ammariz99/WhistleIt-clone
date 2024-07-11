@@ -5,6 +5,7 @@ import authModule from '@/store/modules/auth.js'
 import channelModule from '@/store/modules/channel.js'
 import messageModule from '@/store/modules/message.js'
 import sendMsgModule from '@/store/modules/sendMsg.js'
+import hamburgerModule from '@/store/modules/hamburger.js'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,8 @@ export default new Vuex.Store({
     auth: authModule,
     channel: channelModule,
     message: messageModule,
-    sendMsg: sendMsgModule
+    sendMsg: sendMsgModule,
+    hamburger: hamburgerModule
   },
   plugins:[vuexLocal.plugin]
 })

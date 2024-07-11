@@ -1,5 +1,6 @@
 <template>
   <v-app-bar app clipped-right flat height="72">
+    <v-app-bar-nav-icon @click="toggleDrawer" class="d-lg-none"></v-app-bar-nav-icon>
     <v-icon>mdi-star-outline</v-icon>
      <div v-if="selectedChannel"  class="selected-channel">{{ selectedChannel.name }}</div>  
      <div v-else class="selected-message">{{ selectedMessage.name }}</div>  
@@ -27,7 +28,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Navbar',
@@ -46,7 +47,7 @@ export default {
     }
   },
   methods:{
-    
+    ...mapActions('hamburger', ['toggleDrawer'])
   }
   
 };
