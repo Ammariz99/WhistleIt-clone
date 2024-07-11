@@ -59,7 +59,6 @@ export default {
     try {
       await this.login({ email: this.formData.email, password: this.formData.password });
       this.successSnackbar = true;
-      this.snackbar = true;
       
       setTimeout(() =>{
       this.$router.push('/dashboard'); 
